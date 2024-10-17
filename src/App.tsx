@@ -9,16 +9,19 @@ import { ShoppingCartProvider } from "./context/ShoppingCartContext"
 
 function App() {
   return (
-    <ShoppingCartProvider>
-      <Navbar />
-      <Container className="mb-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </Container>
-    </ShoppingCartProvider>
+    // <div className="app bg-gray-20">
+      <ShoppingCartProvider>
+      
+        <Navbar />
+        <Container className=" mb-4 app bg-gray-20 ">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </Container>
+      </ShoppingCartProvider>
+    // </div>
   )
 }
 

@@ -1,8 +1,9 @@
-import { Offcanvas, Stack } from "react-bootstrap"
+import { Offcanvas, Stack, Button } from "react-bootstrap"
 import { useShoppingCart } from "../context/ShoppingCartContext"
 import { formatCurrency } from "../utilities/formatCurrency"
 import { CartItem } from "./CartItem"
 import storeItems from "../data/items.json"
+import { Link } from "react-router-dom"
 
 type ShoppingCartProps = {
   isOpen: boolean
@@ -30,6 +31,15 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             )}
           </div>
         </Stack>
+        {cartItems.length > 0 && (
+          <div className="d-flex justify-content-end mt-3">
+            
+              <Button variant="success" size="lg">
+                Proceed to Payment
+              </Button>
+           
+          </div>
+        )}
       </Offcanvas.Body>
     </Offcanvas>
   )

@@ -7,9 +7,11 @@ type StoreItemProps = {
   name: string
   price: number
   imgUrl: string
+  description: string;
 }
 
 export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
+  const imageSize: React.CSSProperties = { height: "400px", objectFit: "cover" };
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -24,7 +26,7 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
         variant="top"
         src={imgUrl}
         height="200px"
-        style={{ objectFit: "cover" }}
+        style={imageSize}
       />
       <Card.Body className="d-flex flex-column">
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">

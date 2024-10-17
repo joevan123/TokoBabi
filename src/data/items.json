@@ -3,24 +3,42 @@
       "id": 1,
       "name": "Babi Goreng Karo",
       "price": 8.99,
-      "imgUrl": "/imgs/babigorengkaro.jpg"
+      "imgUrl": "/imgs/babigorengkaro.jpg",
+      "description": "Babi Goreng dengan rasa yang gurih di lidah."
     },
     {
       "id": 2,
       "name": "Babi Goreng Mentega",
       "price": 9.99,
-      "imgUrl": "/imgs/babi-goreng-mentega.jpg"
+      "imgUrl": "/imgs/babi-goreng-mentega.jpg",
+      "description": "Babi Goreng yang disiram dengan saus mentega spesial."
     },
     {
       "id": 3,
       "name": "Babi Panggang",
       "price": 9.05,
-      "imgUrl": "/imgs/babi-panggang.jpg"
+      "imgUrl": "/imgs/babi-panggang.jpg",
+      "description": "Babi Panggang dengan rasa yang menggiurkan"
     },
     {
       "id": 4,
-      "name": "Babi Samcan Panggang",
+      "name": "Samcan Panggang",
       "price": 10.50,
-      "imgUrl": "/imgs/samcan-panggang.jpg"
+      "imgUrl": "/imgs/samcan-panggang.jpg",
+      "description": "Babi Rebus dengan rasa yang menyegarkan."
+    },
+    {
+      "id": 5,
+      "name": "Babi Spicy",
+      "price": 10.50,
+      "imgUrl": "/imgs/babi-spicy.jpg",
+      "description": "Babi Rebus dengan rasa yang menyegarkan."
+    },
+    {
+      "id": 4,
+      "name": "Babi Kering",
+      "price": 10.50,
+      "imgUrl": "/imgs/babi-kering.jpg",
+      "description": "Babi Rebus dengan rasa yang menyegarkan."
     }
   ]
