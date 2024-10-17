@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "name": "Babi Goreng Karo",
+      "price": 8.99,
+      "imgUrl": "/imgs/babigorengkaro.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Babi Goreng Mentega",
+      "price": 9.99,
+      "imgUrl": "/imgs/babi-goreng-mentega.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Babi Panggang",
+      "price": 9.05,
+      "imgUrl": "/imgs/babi-panggang.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Babi Samcan Panggang",
+      "price": 10.50,
+      "imgUrl": "/imgs/samcan-panggang.jpg"
+    }
+  ]
