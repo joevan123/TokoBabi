@@ -55,17 +55,18 @@
 // }
 
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { useAuth } from "../context/AuthContext";
 import WalletConnectButton from "./WalletBtn";
 
 export function Navbar() {
   const { openCart, cartQuantity } = useShoppingCart();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate()
   return (
-    <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
-      <Container>
+    <NavbarBs sticky="top" className="bg-white shadow-sm mb-3 flex">
+      <Container className="gap-2">
         <Nav className="me-auto">
           <Nav.Link to="/" as={NavLink}>
             Home
@@ -76,10 +77,27 @@ export function Navbar() {
           <Nav.Link to="/about" as={NavLink}>
             About
           </Nav.Link>
+          {isAuthenticated &&
+            <Nav.Link to="/profile" as={NavLink}>
+              Profile
+            </Nav.Link>
+          }
         </Nav>
         {isAuthenticated && (
           <WalletConnectButton />
         )}
+        {isAuthenticated ?
+          <Button
+            onClick={logout}
+          >
+            Logout
+          </Button> :
+          <Button
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </Button>
+        }
         {cartQuantity > 0 && (
           <Button
             onClick={openCart}

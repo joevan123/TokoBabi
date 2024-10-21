@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, FormikValues } from "formik";
 import FormikInput from "../components/FormikInput";
 import * as yup from "yup";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Login: React.FC = () => {
@@ -57,6 +57,7 @@ const Login: React.FC = () => {
                         </button>
                     </Form>
                 </Formik>
+                <h1>Don&apos;t have an account? <Link to="/register">Register here</Link></h1>
             </div>
         </div>
     )

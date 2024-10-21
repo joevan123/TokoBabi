@@ -13,10 +13,14 @@ import ProfileLayout from "./pages/ProfileLayout"
 import Profile from "./pages/Profile"
 import UserProducts from "./pages/UserProducts"
 import UserOrders from "./pages/UserOrders"
+import Register from "./pages/Register"
 
 function App() {
   return (
-    <ThirdwebProvider activeChain="sepolia">
+    <ThirdwebProvider 
+      activeChain="sepolia"
+      clientId="5f84f52bb940e0ada67db1729d41d760"
+    >
       <AuthProvider>
         <RqProvider>
           <ShoppingCartProvider>
@@ -27,8 +31,9 @@ function App() {
                 <Route path="/store" element={<Store />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<ProfileLayout />}>
-                  <Route path="" element={<Profile />} />
+                  <Route index element={<Profile />} />
                   <Route path="my-products" element={<UserProducts />} />
                   <Route path="my-orders" element={<UserOrders />} />
                 </Route>
