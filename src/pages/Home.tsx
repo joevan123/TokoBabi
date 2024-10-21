@@ -2,7 +2,6 @@
 
 import { Container, Row, Col, Button, Card, Carousel, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import storeItems from "../data/items.json";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { useProductList } from "../hooks/useProducts";
 import { formatCurrency } from "../utilities/formatCurrency";
@@ -55,7 +54,7 @@ export function Home() {
       <h2 className="mb-4 text-center">Featured Products</h2>
       <Row md={2} lg={3} className="g-3">
         {isLoading && <>Loading...</>}
-        {products.slice(0, 3).map(item => (
+        {products?.slice(0, 3).map(item => (
           <Col key={item.id}>
             <Card className="h-100 shadow-sm">
               <Card.Img

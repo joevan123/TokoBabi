@@ -57,9 +57,12 @@
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { useAuth } from "../context/AuthContext";
+import WalletConnectButton from "./WalletBtn";
 
 export function Navbar() {
   const { openCart, cartQuantity } = useShoppingCart();
+  const { isAuthenticated } = useAuth();
   return (
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
@@ -74,6 +77,9 @@ export function Navbar() {
             About
           </Nav.Link>
         </Nav>
+        {isAuthenticated && (
+          <WalletConnectButton />
+        )}
         {cartQuantity > 0 && (
           <Button
             onClick={openCart}

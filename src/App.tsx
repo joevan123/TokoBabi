@@ -8,28 +8,36 @@ import { ShoppingCartProvider } from "./context/ShoppingCartContext"
 import Login from "./pages/Login"
 import { AuthProvider } from "./context/AuthContext"
 import RqProvider from "./context/ReactQueryContext"
-
+import { ThirdwebProvider } from "@thirdweb-dev/react"
+import ProfileLayout from "./pages/ProfileLayout"
+import Profile from "./pages/Profile"
+import UserProducts from "./pages/UserProducts"
+import UserOrders from "./pages/UserOrders"
 
 function App() {
   return (
-    // <div className="app bg-gray-20">
-    <AuthProvider>
-      <RqProvider>
-      <ShoppingCartProvider>
-      
-        <Navbar />
-        <Container className=" mb-4 app bg-gray-20 ">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/store" element={<Store />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </Container>
-      </ShoppingCartProvider>
-      </RqProvider>
-    </AuthProvider>
-    // </div>
+    <ThirdwebProvider activeChain="sepolia">
+      <AuthProvider>
+        <RqProvider>
+          <ShoppingCartProvider>
+            <Navbar />
+            <Container className="mb-4 app bg-gray-20">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/store" element={<Store />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/profile" element={<ProfileLayout />}>
+                  <Route path="" element={<Profile />} />
+                  <Route path="my-products" element={<UserProducts />} />
+                  <Route path="my-orders" element={<UserOrders />} />
+                </Route>
+              </Routes>
+            </Container>
+          </ShoppingCartProvider>
+        </RqProvider>
+      </AuthProvider>
+    </ThirdwebProvider>
   )
 }
 
