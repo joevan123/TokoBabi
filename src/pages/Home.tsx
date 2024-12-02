@@ -2,12 +2,14 @@
 
 import { Container, Row, Col, Button, Card, Carousel, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import storeItems from "../data/items.json";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { useProductList } from "../hooks/useProducts";
+import { formatCurrency } from "../utilities/formatCurrency";
 
 export function Home() {
   const imageSize: React.CSSProperties = { height: "400px", objectFit: "cover" };
   const { increaseCartQuantity } = useShoppingCart();
+  const {products, isLoading} = useProductList();
 
   return (
     <Container>
@@ -51,12 +53,13 @@ export function Home() {
       {/* Featured Products */}
       <h2 className="mb-4 text-center">Featured Products</h2>
       <Row md={2} lg={3} className="g-3">
-        {storeItems.slice(0, 3).map(item => (
+        {isLoading && <>Loading...</>}
+        {products?.slice(0, 3).map(item => (
           <Col key={item.id}>
             <Card className="h-100 shadow-sm">
               <Card.Img
                 variant="top"
-                src={item.imgUrl}
+                src={item.image}
                 style={{ height: "200px", objectFit: "cover" }}
               />
               <Card.Body className="d-flex flex-column text-center">
@@ -65,7 +68,7 @@ export function Home() {
                   {item.description}
                 </Card.Text>
                 <div className="mt-auto">
-                  <span className="text-muted">{item.price.toFixed(2)} IDR</span>
+                  <span className="text-muted">{formatCurrency(Number(item.price))}</span>
                   <Button
                     className="w-100 mt-2"
                     onClick={() => increaseCartQuantity(item.id)}
